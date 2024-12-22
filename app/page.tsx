@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Card,
   CardContent,
@@ -20,10 +20,11 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
-        <div className="flex w-full justify-center">
+      <div className="flex flex-col md:flex-row justify-center items-center h-screen">
+        {/* Left Panel */}
+        <div className="hidden md:flex w-full justify-center">
           <Card className="w-[25rem]">
-            <CardHeader className="border border- ">
+            <CardHeader className="border">
               <CardTitle className="flex items-center gap-2">
                 <Image src={ant} alt="ant" width={20} height={20} />
                 AI to detect & Autofix bad code
@@ -32,7 +33,7 @@ export default function Home() {
             <CardContent className="flex justify-between items-center text-center mt-3">
               <p className="flex flex-col font-bold">
                 30+
-                <span className="font-normal">Language Support</span>{" "}
+                <span className="font-normal">Language Support</span>
               </p>
               <p className="flex flex-col font-bold">
                 10K+
@@ -45,12 +46,10 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card className="w-[17rem] absolute top-[29rem] left-[22rem]">
-            <CardHeader className="">
-              <CardTitle className=" flex justify-between">
-                <p>
-                  <HiMiniChartPie className="rounded-full h-10 text-[#9D90FA]  w-10 bg-purple-200 text-sm" />
-                </p>
+          <Card className="w-[17rem] absolute top-[29rem] left-[22rem] hidden md:block">
+            <CardHeader>
+              <CardTitle className="flex justify-between">
+                <HiMiniChartPie className="rounded-full h-10 text-[#9D90FA] w-10 bg-purple-200 text-sm" />
                 <div className="flex flex-col">
                   <p className="flex text-md text-[#0049C6]">
                     <FaArrowUp className="text-sm" />
@@ -66,17 +65,18 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
-        <div className="absolute left-0 bottom-0">
+        <div className="absolute left-0 bottom-0 hidden md:block">
           <Image src={Bant} alt="bigant" width={225} height={50} />
         </div>
 
+        {/* Right Panel */}
         <div className="bg-[#FAFAFA] h-screen w-full flex flex-col justify-center items-center">
           <div
             className={`bg-[#FFFFFF] flex flex-col justify-center items-center w-[25rem] p-3 rounded-lg transition-all duration-300 ${
               activeTab === "saas" ? "h-[30rem]" : "h-[20rem]"
             }`}
           >
-            <div className="">
+            <div>
               <p className="flex justify-center items-center gap-2">
                 <Image src={ant} alt="ant" width={20} height={20} />
                 CodeAnt AI
@@ -102,7 +102,7 @@ export default function Home() {
 
               <TabsContent
                 value="saas"
-                className="p-4 flex flex-col gap-3 text-lg font-semibold "
+                className="p-4 flex flex-col gap-3 text-lg font-semibold"
               >
                 <button className="border p-2 rounded-md flex justify-center items-center gap-2">
                   <FaGithub /> Sign in with Github
@@ -137,7 +137,7 @@ export default function Home() {
           </div>
           <p className="text-sm mt-4">
             By signing up you agree to the{" "}
-            <span className="font-semibold"> Privacy Policy.</span>
+            <span className="font-semibold">Privacy Policy.</span>
           </p>
         </div>
       </div>
