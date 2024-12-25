@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col md:flex-row justify-center items-center h-screen">
-        {/* Left Panel */}
+        
         <div className="hidden md:flex w-full justify-center">
           <Card className="w-[25rem]">
             <CardHeader className="border">
@@ -69,7 +69,6 @@ export default function Home() {
           <Image src={Bant} alt="bigant" width={225} height={50} />
         </div>
 
-        {/* Right Panel */}
         <div className="bg-[#FAFAFA] h-screen w-full flex flex-col justify-center items-center">
           <div
             className={`bg-[#FFFFFF] flex flex-col justify-center items-center w-[25rem] p-3 rounded-lg transition-all duration-300 ${
@@ -97,7 +96,6 @@ export default function Home() {
                 </TabsTrigger>
               </TabsList>
 
-              {/* Separator aligned with Tabs */}
               <Separator className="w-full bg-[#E9EAEB] my-2" />
 
               <TabsContent
