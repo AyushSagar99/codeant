@@ -12,7 +12,6 @@ export function Sidebar() {
 
   return (
     <div className="relative">
-      {/* Top Bar for Mobile */}
       <div className="lg:hidden bg-white border-b p-4 flex justify-between items-center z-30">
         <div className="flex items-center gap-2">
           <Image src={ant} alt="CodeAnt AI" width={32} height={32} className="rounded" />
@@ -21,15 +20,13 @@ export function Sidebar() {
         <Menu className="h-6 w-6 cursor-pointer" onClick={() => setMenuOpen(!menuOpen)} />
       </div>
 
-      {/* Backdrop Blur for Mobile View (only below the top bar) */}
       {menuOpen && (
         <div
           className="fixed inset-0 top-16 z-20 backdrop-blur-sm bg-black/30 lg:hidden"
-          onClick={() => setMenuOpen(false)} // Closes menu on outside click
+          onClick={() => setMenuOpen(false)} 
         ></div>
       )}
 
-      {/* Sidebar Dropdown */}
       <div
         className={`fixed lg:static lg:block ${
           menuOpen ? "block" : "hidden"
@@ -86,7 +83,6 @@ export function Sidebar() {
           </Link>
         </nav>
 
-        {/* Footer - Support and Logout */}
         <div className="border-t p-4 flex flex-col space-y-2 sm:mt-96">
           <Link href="#">
             <Button variant="ghost" className="w-full justify-start gap-2">

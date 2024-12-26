@@ -14,9 +14,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { VscAzureDevops, VscKey } from "react-icons/vsc";
 import { useState } from "react";
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("saas");
+
+  const router = useRouter()
+
 
   return (
     <>
@@ -102,18 +106,30 @@ export default function Home() {
                 value="saas"
                 className="p-4 flex flex-col gap-3 text-lg font-semibold"
               >
-                <button className="border p-2 rounded-md flex justify-center items-center gap-2">
+                <button
+                  onClick={() => router.push('/repo')} 
+                  className="border p-2 rounded-md flex justify-center items-center gap-2"
+                >
                   <FaGithub /> Sign in with Github
                 </button>
-                <button className="border p-2 rounded-md flex justify-center items-center gap-2">
+                <button
+                  onClick={() => router.push('/repo')} 
+                  className="border p-2 rounded-md flex justify-center items-center gap-2"
+                >
                   <FaBitbucket className="text-blue-500" />
                   Sign in with bitbucket
                 </button>
-                <button className="border p-2 rounded-md flex justify-center items-center gap-2">
+                <button
+                  onClick={() => router.push('/repo')} 
+                  className="border p-2 rounded-md flex justify-center items-center gap-2"
+                >
                   <VscAzureDevops className="text-blue-500" />
                   Sign in with Azure Devops
                 </button>
-                <button className="border p-2 rounded-md flex justify-center items-center gap-2">
+                <button
+                  onClick={() => router.push('/repo')} 
+                  className="border p-2 rounded-md flex justify-center items-center gap-2"
+                >
                   <FaGitlab />
                   Sign in with Gitlab
                 </button>
@@ -122,11 +138,17 @@ export default function Home() {
                 value="self"
                 className="p-4 flex flex-col gap-3 text-lg font-semibold"
               >
-                <button className="border p-2 rounded-md flex justify-center items-center gap-2">
+                <button
+                  onClick={() => router.push('/repo')} 
+                  className="border p-2 rounded-md flex justify-center items-center gap-2"
+                >
                   <FaGitlab />
                   Self Hosted GitLab
                 </button>
-                <button className="border p-2 rounded-md flex justify-center items-center gap-2">
+                <button
+                  onClick={() => router.push('/repo')} 
+                  className="border p-2 rounded-md flex justify-center items-center gap-2"
+                >
                   <VscKey />
                   Hosted SSO
                 </button>
