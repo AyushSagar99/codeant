@@ -81,7 +81,7 @@ export default function RepositoriesPage() {
             <div>
               <h1 className="text-2xl font-semibold">Repositories</h1>
               <p className="text-sm text-muted-foreground">
-                {repositories.length} total repositories
+                33 total repositories
               </p>
             </div>
 
@@ -97,7 +97,7 @@ export default function RepositoriesPage() {
             </div>
           </div>
 
-          <div className="relative mb-8 p-3">
+          <div className="relative mb-2 p-3">
             <Search className="absolute left-3 top-1/2 h-4 -translate-y-1/2 text-gray-500" />
             <Input placeholder="Search Repositories" className="pl-10 w-full max-w-[20rem]" />
           </div>

@@ -5,38 +5,45 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ant from "../assets/Subtract2.png";
 import { Home, Shield, FileText, Settings, PhoneCall, LogOut } from "lucide-react";
-
 import { Menu } from "lucide-react";
 
 export function Sidebar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div>
-      <div className="lg:hidden bg-white border-b p-4 flex justify-between items-center">
-      <div className="flex items-center gap-2">
-            <Image src={ant} alt="CodeAnt AI" width={32} height={32} className="rounded" />
-            <p>CodeAnt AI</p>
-          </div>
+    <div className="relative">
+      {/* Top Bar for Mobile */}
+      <div className="lg:hidden bg-white border-b p-4 flex justify-between items-center z-30">
+        <div className="flex items-center gap-2">
+          <Image src={ant} alt="CodeAnt AI" width={32} height={32} className="rounded" />
+          <p>CodeAnt AI</p>
+        </div>
         <Menu className="h-6 w-6 cursor-pointer" onClick={() => setMenuOpen(!menuOpen)} />
       </div>
 
+      {/* Backdrop Blur for Mobile View (only below the top bar) */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 top-16 z-20 backdrop-blur-sm bg-black/30 lg:hidden"
+          onClick={() => setMenuOpen(false)} // Closes menu on outside click
+        ></div>
+      )}
+
+      {/* Sidebar Dropdown */}
       <div
         className={`fixed lg:static lg:block ${
           menuOpen ? "block" : "hidden"
-        } lg:w-60 w-full sm:h-screen bg-white z-10 flex flex-col border-r`}
+        } lg:w-60 w-full sm:h-screen bg-white z-30 flex flex-col border-r`}
       >
-        <div className="flex items-center justify-between p-4 border-b">
-        <div className="lg:flex items-center gap-2 hidden">
+        <div className="flex items-center justify-between p-3">
+          <div className="lg:flex items-center gap-2 hidden">
             <Image src={ant} alt="CodeAnt AI" width={32} height={32} className="rounded" />
             <p>CodeAnt AI</p>
           </div>
-         
           <button
             className="lg:hidden"
             onClick={() => setMenuOpen(false)}
-          >
-          </button>
+          ></button>
         </div>
 
         <div className="ml-4 border rounded-lg w-48 p-1">
@@ -79,7 +86,8 @@ export function Sidebar() {
           </Link>
         </nav>
 
-        <div className="border-t p-4">
+        {/* Footer - Support and Logout */}
+        <div className="border-t p-4 flex flex-col space-y-2 sm:mt-96">
           <Link href="#">
             <Button variant="ghost" className="w-full justify-start gap-2">
               <PhoneCall className="h-4 w-4" />
