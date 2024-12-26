@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button"
 import ant from "../assets/Subtract2.png"
 import { Home, Shield, FileText, Settings, PhoneCall, LogOut } from 'lucide-react'
 
+
+
 export function Sidebar() {
   return (
-    <div className="flex fixed h-screen w-60  flex-col border-r bg-white">
-
-      <div className="flex items-center gap-2 border-b p-4">
+    <div className="flex fixed sm:h-screen w-full sm:w-60  flex-col border-r bg-white">
+      <div className="flex flex-col">
+      <div className="flex items-center gap-2  p-4">
         <Image
           src={ant}
           alt="CodeAnt AI"
@@ -16,13 +18,18 @@ export function Sidebar() {
           height={32}
           className="rounded"
         />
-        <div className="flex-1">
-          <select className="w-full appearance-none bg-transparent text-sm font-medium outline-none">
-            <option>UtkarshDhairyaPatel</option>
-          </select>
-        </div>
+        <p>CodeAnt AI</p>
+
+        
+       
+      </div>
+      <div className="ml-4 border border- rounded-lg w-48 p-1">      
+      <p>UtkarshDhairyaPanwar</p>
+
       </div>
 
+      </div>
+      
       {/* Main Navigation */}
       <nav className="flex-1 space-y-1 p-2">
         <Link href="#">
