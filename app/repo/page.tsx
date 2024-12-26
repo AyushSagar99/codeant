@@ -2,10 +2,9 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { RefreshCcw, Plus, Search, Menu } from 'lucide-react'
+import { RefreshCcw, Plus, Search,} from 'lucide-react'
 import { Sidebar } from "@/app/component/sidebar"
 import { GrStorage } from "react-icons/gr"
-import { useState } from "react"
 
 const repositories = [
   {
@@ -70,33 +69,20 @@ const languageColors: { [key: string]: string } = {
 }
 
 export default function RepositoriesPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="flex flex-col lg:flex-row min-h-screen overflow-hidden">
-      {/* Sidebar for Desktop and Navbar for Mobile */}
-      <div
-        className={`lg:fixed lg:w-60 w-full  ${
-          menuOpen ? "block" : "hidden"
-        } lg:block bg-white z-10`}
-      >
-        <Sidebar />
-      </div>
+   
+      <Sidebar />
 
-      {/* Mobile Navbar */}
-      <div className="lg:hidden bg-white border-b p-4 flex justify-between items-center">
-        <h1 className="text-xl font-semibold">Repositories</h1>
-        <Menu className="h-6 w-6 cursor-pointer" onClick={() => setMenuOpen(!menuOpen)} />
-      </div>
-
-      {/* Main Content */}
-      <main className="flex-1  bg-[#F5F5F5] p-4 overflow-hidden lg:ml-60">
+      <main className="flex-1 bg-[#F5F5F5] p-4 overflow-hidden smml-60">
         <div className="h-full border rounded-xl bg-white">
-          {/* Header */}
+       
           <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-2 p-3 justify-between">
             <div>
               <h1 className="text-2xl font-semibold">Repositories</h1>
-              <p className="text-sm text-muted-foreground">33 total repositories</p>
+              <p className="text-sm text-muted-foreground">
+                {repositories.length} total repositories
+              </p>
             </div>
 
             <div className="flex items-center gap-2">
@@ -111,13 +97,11 @@ export default function RepositoriesPage() {
             </div>
           </div>
 
-          {/* Search Input */}
           <div className="relative mb-8 p-3">
             <Search className="absolute left-3 top-1/2 h-4 -translate-y-1/2 text-gray-500" />
             <Input placeholder="Search Repositories" className="pl-10 w-full max-w-[20rem]" />
           </div>
 
-          {/* Repository List */}
           <div className="overflow-auto h-[calc(100%-10rem)]">
             {repositories.map((repo) => (
               <div
